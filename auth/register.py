@@ -109,23 +109,25 @@ def render_register_page() -> None:
         with st.form("register_form", clear_on_submit=False):
             col1, col2 = st.columns(2)
             with col1:
-                full_name = st.text_input("Full Name", placeholder="Jane Doe")
-                email = st.text_input("College Email", placeholder="jane@college.edu")
-                password = st.text_input("Password", type="password", placeholder="Min 8 chars")
+                full_name = st.text_input("Full Name", placeholder="Jane Doe", key="reg_full_name")
+                email = st.text_input("College Email", placeholder="jane@college.edu", key="reg_email")
+                password = st.text_input("Password", type="password", placeholder="Min 8 chars", key="reg_password")
             with col2:
                 role = st.selectbox(
                     "🎭 Role",
                     options=["student", "coordinator"],
                     format_func=lambda r: "Student" if r == "student" else "🎯 Coordinator",
+                    key="reg_role"
                 )
-                department = st.text_input("Department", placeholder="Computer Science")
+                department = st.text_input("Department", placeholder="Computer Science", key="reg_dept")
                 year_of_study = st.selectbox(
                     "Year of Study",
                     options=[None, 1, 2, 3, 4],
                     format_func=lambda y: "N/A" if y is None else f"Year {y}",
+                    key="reg_year"
                 )
 
-            phone = st.text_input("Phone (optional)", placeholder="+91 98765 43210")
+            phone = st.text_input("Phone (optional)", placeholder="+91 98765 43210", key="reg_phone")
 
             submitted = st.form_submit_button("Create Account", use_container_width=True)
 

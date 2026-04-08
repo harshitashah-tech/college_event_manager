@@ -131,8 +131,8 @@ def render_login_page() -> None:
 
     with card_container():
         with st.form("login_form", clear_on_submit=False):
-            email = st.text_input("Email", placeholder="you@college.edu")
-            password = st.text_input("Password", type="password", placeholder="••••••••")
+            email = st.text_input("Email", placeholder="you@college.edu", key="login_email")
+            password = st.text_input("Password", type="password", placeholder="••••••••", key="login_password")
             submitted = st.form_submit_button("Sign In", use_container_width=True)
 
         if submitted:
